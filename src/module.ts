@@ -1,7 +1,7 @@
 /// <reference types="@nuxt/eslint" />
 
-import type { Unimport } from 'unimport'
-import { defineNuxtModule, logger } from '@nuxt/kit'
+import type { Import } from 'unimport'
+import { defineNuxtModule } from '@nuxt/kit'
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {}
@@ -10,23 +10,32 @@ export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-eslint-auto-components-import',
   },
-  setup(options, nuxt) {
-    let unimport: Unimport
+  setup(_options, nuxt) {
+    const imports: Import[] = []
 
-    nuxt.hook('imports:context', (ctx) => {
-      unimport = ctx
+    nuxt.hook('components:extend', (components) => {
+      components.forEach((component) => {
+        const isUserComponent = !component.filePath.includes('node_modules')
+
+        if (!isUserComponent)
+          return
+
+        imports.push({
+          name: component.pascalName,
+          as: component.pascalName,
+          from: '#components',
+        })
+      })
     })
 
     nuxt.hook('eslint:config:addons', (addons) => {
       addons.push({
         name: 'nuxt-eslint-auto-components-import',
         async getConfigs() {
-          if (!unimport)
-            logger.warn('unimport is not ready for nuxt-eslint-auto-components-import')
           return {
             imports: [
               {
-                from: 'eslint-plugin-unimport',
+                from: 'eslint-plugin-unimport-components',
                 name: 'createAutoInsert',
               },
             ],
@@ -34,7 +43,7 @@ export default defineNuxtModule<ModuleOptions>({
               [
                 '// nuxt-eslint-auto-components-import',
                 'createAutoInsert({',
-                `  imports: ${JSON.stringify(await unimport?.getImports() || [])}`,
+                `  imports: ${JSON.stringify(imports)}`,
                 '})',
               ].join('\n'),
             ],
