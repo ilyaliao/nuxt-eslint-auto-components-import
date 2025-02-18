@@ -33,6 +33,8 @@ export default withNuxt({
 })
 ```
 
+It is recommended to use this module together with [@antfu/nuxt-eslint-auto-explicit-import](https://github.com/antfu/nuxt-eslint-auto-explicit-import) for the best auto import experience.
+
 ## Credits
 
 - This project is heavily inspired by [nuxt-eslint-auto-explicit-import](https://github.com/antfu/nuxt-eslint-auto-explicit-import)
