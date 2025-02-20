@@ -12,8 +12,8 @@ importers:
         specifier: ^3.15.4
         version: 3.15.4(magicast@0.3.5)
       eslint-plugin-unimport-components:
-        specifier: ^0.0.2
-        version: 0.0.2(eslint@9.20.1(jiti@2.4.2))(typescript@5.4.3)
+        specifier: ^0.0.3
+        version: 0.0.3(eslint@9.20.1(jiti@2.4.2))(typescript@5.4.3)
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^4.3.0
@@ -2431,8 +2431,8 @@ packages:
     peerDependencies:
       eslint: '>=9.20.0'
 
-  eslint-plugin-unimport-components@0.0.2:
-    resolution: {integrity: sha512-GIVmUlt/89JIuYbbmPuN+VEzY17I6vdhTH9J0cTRfB0QNavnc560lVfGFzlzogPF2WDwEwfEAz95STxpU+yRCw==}
+  eslint-plugin-unimport-components@0.0.3:
+    resolution: {integrity: sha512-rF6DeGmXmPaxQR0VqV46z29FE2rQe7nTxm4qJAnPyoic9xAnY+a6ToiNt0KxYMh30K/MGP/d1/l7MMP2PgkLZQ==}
     peerDependencies:
       eslint: ^9.0.0 || ^8.45.0
 
@@ -8088,7 +8088,7 @@ snapshots:
       semver: 7.7.1
       strip-indent: 4.0.0
 
-  eslint-plugin-unimport-components@0.0.2(eslint@9.20.1(jiti@2.4.2))(typescript@5.4.3):
+  eslint-plugin-unimport-components@0.0.3(eslint@9.20.1(jiti@2.4.2))(typescript@5.4.3):
     dependencies:
       '@typescript-eslint/scope-manager': 8.24.1
       '@typescript-eslint/utils': 8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.4.3)

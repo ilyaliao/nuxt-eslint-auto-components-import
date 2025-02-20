@@ -36,13 +36,13 @@ export default defineNuxtModule<ModuleOptions>({
             imports: [
               {
                 from: 'eslint-plugin-unimport-components',
-                name: 'createAutoInsert',
+                name: 'createAutoComponentsInsert',
               },
             ],
             configs: [
               [
                 '// nuxt-eslint-auto-components-import',
-                'createAutoInsert({',
+                'createAutoComponentsInsert({',
                 `  imports: ${JSON.stringify(imports)}`,
                 '})',
               ].join('\n'),
