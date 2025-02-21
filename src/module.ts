@@ -3,14 +3,27 @@
 import type { Import } from 'eslint-plugin-unimport-components'
 import { defineNuxtModule } from '@nuxt/kit'
 
-// Module options TypeScript interface definition
-export interface ModuleOptions {}
+export interface ModuleOptions {
+  /**
+   * if `false`, the import path will be `#components`
+   *
+   * @default true
+   */
+  relative?: boolean
+}
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'nuxt-eslint-auto-components-import',
   },
-  setup(_options, nuxt) {
+  defaults: {
+    relative: true,
+  },
+  setup(options, nuxt) {
+    const {
+      relative,
+    } = options
+
     const imports: Import[] = []
 
     nuxt.hook('components:extend', (components) => {
@@ -23,7 +36,7 @@ export default defineNuxtModule<ModuleOptions>({
         imports.push({
           name: component.pascalName,
           as: component.pascalName,
-          from: '#components',
+          from: relative ? component.filePath : '#components',
         })
       })
     })
