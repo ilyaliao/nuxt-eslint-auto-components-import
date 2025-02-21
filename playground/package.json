@@ -8,5 +8,8 @@
   },
   "dependencies": {
     "nuxt": "latest"
+  },
+  "devDependencies": {
+    "nuxt-eslint-auto-explicit-import": "^0.1.1"
   }
 }

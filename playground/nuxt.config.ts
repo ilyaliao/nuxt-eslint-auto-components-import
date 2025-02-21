@@ -1,6 +1,7 @@
 export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
+    'nuxt-eslint-auto-explicit-import',
     '../src/module',
   ],
 
