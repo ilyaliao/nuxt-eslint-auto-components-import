@@ -39,7 +39,7 @@ export default defineNuxtConfig({
 
 This module automatically handles component imports. When you use a component in your file, ESLint will automatically add the necessary import statements.
 
-<video src="https://github.com/user-attachments/assets/03ad80de-1adc-4c2c-97f5-fb635d0fc235" controls />
+<video src="https://github.com/user-attachments/assets/03ad80de-1adc-4c2c-97f5-fb635d0fc235" controls></video>
 
 ### Example
 
