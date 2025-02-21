@@ -12,8 +12,8 @@ importers:
         specifier: ^3.15.4
         version: 3.15.4(magicast@0.3.5)
       eslint-plugin-unimport-components:
-        specifier: ^0.0.3
-        version: 0.0.3(eslint@9.20.1(jiti@2.4.2))(typescript@5.4.3)
+        specifier: ^0.0.5
+        version: 0.0.5(eslint@9.20.1(jiti@2.4.2))(typescript@5.4.3)
     devDependencies:
       '@antfu/eslint-config':
         specifier: ^4.3.0
@@ -57,6 +57,10 @@ importers:
       nuxt:
         specifier: latest
         version: 3.15.4(@parcel/watcher@2.4.1)(@types/node@22.13.4)(db0@0.2.4)(eslint@9.20.1(jiti@2.4.2))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.3)(rollup@4.34.8)(terser@5.30.0)(typescript@5.4.3)(vite@6.1.0(@types/node@22.13.4)(jiti@2.4.2)(terser@5.30.0)(yaml@2.7.0))(yaml@2.7.0)
+    devDependencies:
+      nuxt-eslint-auto-explicit-import:
+        specifier: ^0.1.1
+        version: 0.1.1(eslint@9.20.1(jiti@2.4.2))(magicast@0.3.5)(rollup@4.34.8)(typescript@5.4.3)
 
 packages:
 
@@ -2431,8 +2435,13 @@ packages:
     peerDependencies:
       eslint: '>=9.20.0'
 
-  eslint-plugin-unimport-components@0.0.3:
-    resolution: {integrity: sha512-rF6DeGmXmPaxQR0VqV46z29FE2rQe7nTxm4qJAnPyoic9xAnY+a6ToiNt0KxYMh30K/MGP/d1/l7MMP2PgkLZQ==}
+  eslint-plugin-unimport-components@0.0.5:
+    resolution: {integrity: sha512-5icOditG+GpWbCvhzxvgpyPFpoeq+HR3FB/8Z2Hc8rQ0VTiEaQsE5HZS7IDIuYUX0nkotHvK9CtifaXvuaPYHQ==}
+    peerDependencies:
+      eslint: ^9.0.0 || ^8.45.0
+
+  eslint-plugin-unimport@0.1.2:
+    resolution: {integrity: sha512-C021i+pdXLZXlXwS9QGyRjxYo4PAB7QiOT89GgwwtvcBOhiQpfZFCCLya7iH1ALBICgrKM7GqRSKhUUNTXWALA==}
     peerDependencies:
       eslint: ^9.0.0 || ^8.45.0
 
@@ -3552,6 +3561,9 @@ packages:
     resolution: {integrity: sha512-yAgpxBcIB2/DWL7dWRZOQa5ULLZQ4AWgYdqtUDbeOZ3KxmY/+fqm8/UJuU7QK81JrccNaZeSI+GLe5BY7RR3cQ==}
     engines: {node: ^16.10.0 || >=18.0.0}
     hasBin: true
+
+  nuxt-eslint-auto-explicit-import@0.1.1:
+    resolution: {integrity: sha512-Oi/ldgnzQKpUgOUgP3TgWm11gK4AsG2MuBhBFjxszo1acv7YO7ZQrfFsxUFLY2CVNPD+jR2Eldd/BrVN59nBXQ==}
 
   nuxt@3.15.4:
     resolution: {integrity: sha512-hSbZO4mR0uAMJtZPNTnCfiAtgleoOu28gvJcBNU7KQHgWnNXPjlWgwMczko2O4Tmnv9zIe/CQged+2HsPwl2ZA==}
@@ -8088,7 +8100,7 @@ snapshots:
       semver: 7.7.1
       strip-indent: 4.0.0
 
-  eslint-plugin-unimport-components@0.0.3(eslint@9.20.1(jiti@2.4.2))(typescript@5.4.3):
+  eslint-plugin-unimport-components@0.0.5(eslint@9.20.1(jiti@2.4.2))(typescript@5.4.3):
     dependencies:
       '@typescript-eslint/scope-manager': 8.24.1
       '@typescript-eslint/utils': 8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.4.3)
@@ -8096,8 +8108,20 @@ snapshots:
       eslint: 9.20.1(jiti@2.4.2)
       html-tags: 4.0.0
       pathe: 2.0.3
-      unimport: 4.1.2
     transitivePeerDependencies:
+      - supports-color
+      - typescript
+
+  eslint-plugin-unimport@0.1.2(eslint@9.20.1(jiti@2.4.2))(rollup@4.34.8)(typescript@5.4.3):
+    dependencies:
+      '@typescript-eslint/scope-manager': 8.24.1
+      '@typescript-eslint/utils': 8.24.1(eslint@9.20.1(jiti@2.4.2))(typescript@5.4.3)
+      debug: 4.4.0
+      eslint: 9.20.1(jiti@2.4.2)
+      pathe: 1.1.2
+      unimport: 3.14.6(rollup@4.34.8)
+    transitivePeerDependencies:
+      - rollup
       - supports-color
       - typescript
 
@@ -9485,6 +9509,17 @@ snapshots:
   nuxi@3.13.2:
     optionalDependencies:
       fsevents: 2.3.3
+
+  nuxt-eslint-auto-explicit-import@0.1.1(eslint@9.20.1(jiti@2.4.2))(magicast@0.3.5)(rollup@4.34.8)(typescript@5.4.3):
+    dependencies:
+      '@nuxt/kit': 3.15.4(magicast@0.3.5)
+      eslint-plugin-unimport: 0.1.2(eslint@9.20.1(jiti@2.4.2))(rollup@4.34.8)(typescript@5.4.3)
+    transitivePeerDependencies:
+      - eslint
+      - magicast
+      - rollup
+      - supports-color
+      - typescript
 
   nuxt@3.15.4(@parcel/watcher@2.4.1)(@types/node@22.13.4)(db0@0.2.4)(eslint@9.20.1(jiti@2.4.2))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.3)(rollup@4.34.8)(terser@5.30.0)(typescript@5.4.3)(vite@6.1.0(@types/node@22.13.4)(jiti@2.4.2)(terser@5.30.0)(yaml@2.7.0))(yaml@2.7.0):
     dependencies:
