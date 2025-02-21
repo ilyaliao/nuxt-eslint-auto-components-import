@@ -14,26 +14,47 @@
 npm i -D nuxt-eslint-auto-components-import @nuxt/eslint
 ```
 
+## Configuration
+
 ```ts
 export default defineNuxtConfig({
   modules: [
-    // Both are required
+    // Both modules are required
     '@nuxt/eslint',
     'nuxt-eslint-auto-components-import'
   ],
+  eslintAutoComponentsImport: {
+    // Whether to use relative path imports
+    // If false, will use #components alias
+    // Default: true
+    relative: true
+  }
 })
 ```
 
-```js
-// eslint.config.mjs
-import withNuxt from './.nuxt/eslint.config.mjs'
+> [!TIP]
+> It's recommended to use it with [@antfu/nuxt-eslint-auto-explicit-import](https://github.com/antfu/nuxt-eslint-auto-explicit-import) for the best auto-import experience.
 
-export default withNuxt({
-  // Your ESLint config
-})
+## Usage
+
+This module automatically handles component imports. When you use a component in your file, ESLint will automatically add the necessary import statements.
+
+<video src="https://github.com/user-attachments/assets/03ad80de-1adc-4c2c-97f5-fb635d0fc235" controls />
+
+### Example
+
+```vue
+<script setup>
+// or
+import { TestComponent } from '#components' // when relative: false
+import { TestComponent } from './components/TestComponent.vue' // when relative: true
+</script>
+
+<!-- ESLint will automatically add the following imports -->
+<template>
+  <TestComponent />
+</template>
 ```
-
-It is recommended to use this module together with [@antfu/nuxt-eslint-auto-explicit-import](https://github.com/antfu/nuxt-eslint-auto-explicit-import) for the best auto import experience.
 
 ## Credits
 
